@@ -1,0 +1,57 @@
+"use client";
+
+import { useActionState } from "react";
+import { signUp, type AuthActionState } from "@/app/_actions/auth";
+
+const initialState: AuthActionState = { ok: false, message: "" };
+
+export function RegisterForm() {
+  const [state, action, pending] = useActionState(signUp, initialState);
+
+  return (
+    <form action={action} className="space-y-4">
+      <div className="space-y-2">
+        <label className="block text-sm font-medium" htmlFor="email">
+          Email
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          required
+          className="w-full rounded-md border border-neutral-200 px-3 py-2 text-base"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium" htmlFor="password">
+          Password
+        </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autoComplete="new-password"
+          required
+          minLength={8}
+          className="w-full rounded-md border border-neutral-200 px-3 py-2 text-base"
+        />
+        <p className="text-xs text-neutral-500">Minimum 8 characters.</p>
+      </div>
+
+      {!state.ok && state.message ? (
+        <p className="text-sm text-red-600">{state.message}</p>
+      ) : null}
+
+      <button
+        type="submit"
+        disabled={pending}
+        className="w-full rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+      >
+        {pending ? "Creating…" : "Create account"}
+      </button>
+    </form>
+  );
+}

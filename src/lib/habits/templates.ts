@@ -1,0 +1,26 @@
+export const HABIT_TEMPLATES = [
+  "8 hour sleep",
+  "45 min Outdoor workout",
+  "1 hour Gym",
+  "6 hour deep work",
+  "2 hour study",
+  "No sugar",
+  "Make bed",
+  "120g Protien",
+  "No Junk",
+  "4 Liters of water",
+  "Read 10 Pages",
+  "No Alcohol",
+  "No Porn",
+  "No Masturbation",
+  "15 min Meditation",
+  "Bathing",
+  "Brushing Teeth Morning",
+  "Brushing Teeth Night",
+  "Skin Care",
+  "Wake up at 6 AM",
+  "Pray to god",
+  "Take supplements",
+] as const;
+
+export const DEFAULT_PASS_PERCENTAGE = 80;
