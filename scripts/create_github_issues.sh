@@ -228,4 +228,10 @@ create_issue \
   "Goal\n- Add consistent loading/pending states for server actions and data loads.\n\nAcceptance Criteria\n- Buttons indicate loading and prevent double-submit.\n- Loading states are consistent across auth, habits, and tracker actions.\n" \
   "Add proper loaders and pending states"
 
+create_issue \
+  "[Deployment] Setup Dev / Staging / Prod branches" \
+  "deployment,ops,architecture" \
+  "Goal\n- Establish a branching strategy with separate development, staging, and production branches for controlled deployments.\n\nProposed Branch Structure\n- main (production): Production-ready code, deployed to production environment on Vercel.\n- staging: Pre-release testing, deployed to staging environment on Vercel.\n- dev: Active development, deployed to development environment on Vercel.\n\nWorkflow\n- Feature branches are created from dev.\n- Feature branches merge into dev for integration testing.\n- dev merges into staging for pre-release validation.\n- staging merges into main for production release.\n\nAcceptance Criteria\n- Create staging and dev branches from current main.\n- Configure Vercel deployments for each branch (production, preview for staging, preview for dev).\n- Document branch strategy and workflow in README.\n- Set up branch protection rules if needed (e.g., require PR reviews for main and staging).\n- Update deployment documentation with multi-environment setup.\n" \
+  "Setup Dev / Staging / Prod branches"
+
 echo "Done. Repo: $REPO"
