@@ -38,6 +38,7 @@ Mobile-first habit tracker built with Next.js App Router, Tailwind, and Supabase
 3. In Supabase Auth settings:
 	 - Enable Email auth
 	 - Decide whether you want email confirmations (if enabled, users must confirm before signing in)
+	 - Under "URL Configuration", add your site URL to "Redirect URLs" (e.g., `https://your-domain.com/auth/callback` for production and `http://localhost:3000/auth/callback` for development)
 
 The schema enables Row Level Security (RLS) so each user can only access their own rows.
 
@@ -48,7 +49,12 @@ Create `.env.local` with:
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
+
+For local development, set `NEXT_PUBLIC_SITE_URL=http://localhost:3000`.
+
+For production (e.g., Vercel), set `NEXT_PUBLIC_SITE_URL=https://your-domain.com`.
 
 You can copy `.env.example`.
 
@@ -68,6 +74,7 @@ Open http://localhost:3000
 3. Add the same env vars in Vercel:
 	 - `NEXT_PUBLIC_SUPABASE_URL`
 	- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+	- `NEXT_PUBLIC_SITE_URL` (e.g., `https://your-domain.vercel.app`)
 4. Deploy.
 
 ## Usage
