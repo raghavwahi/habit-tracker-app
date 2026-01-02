@@ -38,6 +38,7 @@ Mobile-first habit tracker built with Next.js App Router, Tailwind, and Supabase
 3. In Supabase Auth settings:
 	 - Enable Email auth
 	 - Decide whether you want email confirmations (if enabled, users must confirm before signing in)
+	 - Under "URL Configuration", add your site URL to "Redirect URLs" (e.g., `https://your-domain.com/auth/callback` for production and `http://localhost:3000/auth/callback` for development)
 
 The schema enables Row Level Security (RLS) so each user can only access their own rows.
 

@@ -50,12 +50,14 @@ export async function signUp(
   }
 
   const supabase = await createSupabaseServerClient();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const { NEXT_PUBLIC_SITE_URL } = await import("@/lib/supabase/env").then(
+    (m) => m.getSupabaseEnv(),
+  );
   
   const { error } = await supabase.auth.signUp({
     ...parsed.data,
     options: {
-      emailRedirectTo: `${siteUrl}/auth/callback`,
+      emailRedirectTo: `${NEXT_PUBLIC_SITE_URL}/auth/callback`,
     },
   });
 
