@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { addDays, format, parseISO } from "date-fns";
 import { setHabitCompletion } from "@/app/_actions/tracker";
+import { Spinner } from "@/components/Spinner";
 
 type Habit = {
   id: string;
@@ -93,6 +94,12 @@ export function TrackerClient({
 
   return (
     <div className="space-y-4">
+      {isPending && (
+        <div className="fixed top-16 left-1/2 -translate-x-1/2 z-20 rounded-full bg-neutral-900 px-4 py-2 text-sm text-white shadow-lg flex items-center gap-2">
+          <Spinner size="sm" />
+          Saving...
+        </div>
+      )}
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <button
