@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signOut } from "@/app/_actions/auth";
+import { SignOutButton } from "./SignOutButton";
 
 export default function AppLayout({
   children,
@@ -13,14 +13,7 @@ export default function AppLayout({
           <Link href="/app" className="text-sm font-semibold">
             Habit Tracker
           </Link>
-          <form action={signOut}>
-            <button
-              type="submit"
-              className="rounded-md px-2 py-1 text-sm font-medium text-neutral-700"
-            >
-              Sign out
-            </button>
-          </form>
+          <SignOutButton />
         </div>
       </header>
 

@@ -8,6 +8,7 @@ import {
   setPassPercentage,
   type TrackerActionState,
 } from "@/app/_actions/tracker";
+import { Spinner } from "@/components/Spinner";
 
 type Habit = { id: string; name: string };
 
@@ -90,8 +91,9 @@ export function HabitsClient({
           <button
             type="submit"
             disabled={passPending}
-            className="rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+            className="rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60 flex items-center gap-2"
           >
+            {passPending && <Spinner size="sm" />}
             Save
           </button>
         </form>
@@ -120,8 +122,9 @@ export function HabitsClient({
           <button
             type="submit"
             disabled={createPending}
-            className="rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+            className="rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60 flex items-center gap-2"
           >
+            {createPending && <Spinner size="sm" />}
             Add
           </button>
         </form>
@@ -180,8 +183,9 @@ export function HabitsClient({
           type="button"
           disabled={templatePending || selected.size === 0}
           onClick={addSelected}
-          className="mt-3 w-full rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+          className="mt-3 w-full rounded-md bg-neutral-900 px-3 py-2 text-sm font-medium text-white disabled:opacity-60 flex items-center justify-center gap-2"
         >
+          {templatePending && <Spinner size="sm" />}
           {templatePending ? "Adding…" : "Add selected"}
         </button>
       </section>
