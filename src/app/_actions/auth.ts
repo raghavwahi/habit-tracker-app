@@ -50,7 +50,11 @@ export async function signUp(
   }
 
   const supabase = await createSupabaseServerClient();
-  const { error } = await supabase.auth.signUp(parsed.data);
+  const baseUrl = process.env.APP_BASE_URL ?? "http://localhost:3000";
+  const { error } = await supabase.auth.signUp({
+    ...parsed.data,
+    options: { emailRedirectTo: `${baseUrl}/app` },
+  });
 
   if (error) {
     return { ok: false, message: error.message };
