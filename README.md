@@ -48,7 +48,10 @@ Create `.env.local` with:
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
+APP_BASE_URL=https://your-domain.com
 ```
+
+`APP_BASE_URL` is the public URL of the deployed app (e.g. `https://your-domain.com`). It is used to build email confirmation links. Defaults to `http://localhost:3000` when not set (local development only).
 
 You can copy `.env.example`.
 
@@ -68,6 +71,7 @@ Open http://localhost:3000
 3. Add the same env vars in Vercel:
 	 - `NEXT_PUBLIC_SUPABASE_URL`
 	- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+	- `APP_BASE_URL` (set to your Vercel deployment URL, e.g. `https://your-app.vercel.app`)
 4. Deploy.
 
 ## Usage
